@@ -4,9 +4,17 @@ import Banner from '../../../assets/banner.jpg'
 import Camomila from '../../assets/img/chacamomila.jpg'
 import Chaverde from '../../assets/img/chaverde.jpg'
 import Chaerva from '../../assets/img/chaerva.jpg'
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/ContextCart";
 
 
 export function Main(){
+  const products = useContext(CartContext)
+  const [cart,setCart] =useState([])
+  async function addProduct(product){
+    setCart([...cart,product.value])
+    
+  }
   return(
     <main className={style.main}>
 
@@ -19,32 +27,20 @@ export function Main(){
           <button>Comprar</button>
         </div>
         </div>
+       
       <article className={style.promo}>
         <h1>Promoções</h1>
         <div className={style.itensPromo}>
-          <div className={style.itemPromo}>
-            <p className={style.title}>Cha de Limão</p>
-            <div className={style.imgProduct}> 
-            <Image src={Chaerva} alt="chaerva"></Image>
-            </div>
-            <p className={style.priceProduct}>R$21,90</p>
-          </div>
-          <div className={style.itemPromo}>
-          <div className={style.itemPromo}>
-            <p className={style.title}>Cha de Limão</p>
-            <div className={style.imgProduct}> <Image src={Camomila} alt="Camomila"></Image> </div>
-            <p className={style.priceProduct}>R$21,90</p>
-          </div>
-          </div>
-          <div className={style.itemPromo}>
-          <div className={style.itemPromo}>
-            <p className={style.title}>Cha de Limão</p>
-            <div className={style.imgProduct}> 
-            <Image src={Chaverde} alt="chaverde"></Image>
-            </div>
-            <p className={style.priceProduct}>R$21,90</p>
-          </div>
-          </div>
+          {products.map(product=>(
+                    <div className={style.itemPromo}>
+                    <p className={style.title}>{product.name}</p>
+                    <div className={style.imgProduct}> 
+                    <Image src={Chaerva} alt="chaerva"></Image>
+                    </div>
+                    <p className={style.priceProduct}>R${product.price}</p>
+                    <button value={product.id} onClick={(e)=>{addProduct(e.target)}}>Comprar</button>
+                  </div>
+          ))}
         </div>
       </article>
 
@@ -61,6 +57,7 @@ export function Main(){
           <a href='#'>Chá de Canela</a>
         </div>
       </aside>
+
     </main>
   )
   }
