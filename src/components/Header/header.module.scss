@@ -15,4 +15,21 @@
     font-family: 400 1rem "Roboto", sans-serif;
     color: #CACACA;
   }
+  .bag{
+    
+    position: relative;
+  }
+  .countItem{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    top: 0px;
+    right: 0px;
+    z-index: 9999;
+  }
 }

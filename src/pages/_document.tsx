@@ -10,7 +10,7 @@ export default class MyDocument extends Document{
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Yuji+Boku&display=swap" rel="stylesheet"/>
         </Head>
         <body>
-        <Main/>
+            <Main/>
         </body>
         <NextScript/>
       </Html>
