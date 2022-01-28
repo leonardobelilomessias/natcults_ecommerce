@@ -13,7 +13,6 @@ export default function Home() {
     <Head>
     <title>natcults</title>
     </Head>
-    <Header></Header>
     <Main></Main>
     </>
   )

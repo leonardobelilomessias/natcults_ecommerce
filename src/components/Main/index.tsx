@@ -4,16 +4,23 @@ import Banner from '../../../assets/banner.jpg'
 import Camomila from '../../assets/img/chacamomila.jpg'
 import Chaverde from '../../assets/img/chaverde.jpg'
 import Chaerva from '../../assets/img/chaerva.jpg'
-import { useContext, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { CartContext } from "../../context/ContextCart";
 
 
 export function Main(){
-  const products = useContext(CartContext)
-  const [cart,setCart] =useState([])
-  async function addProduct(product){
-    setCart([...cart,product.value])
+  const {products,cart,setCart} = useContext(CartContext)
+  const [mycart,setMycart ]=useState([])
+  
+  async function addProduct(productAdd){
+    // setCart([...cart,product.value])
     
+   products.forEach(product=> {if(product.id.valueOf()== productAdd.value){console.log(product) 
+      setCart([...cart,product]) }})
+  }
+  function see(){
+    console.log(cart)
+    console.log(mycart)
   }
   return(
     <main className={style.main}>
@@ -32,7 +39,7 @@ export function Main(){
         <h1>Promoções</h1>
         <div className={style.itensPromo}>
           {products.map(product=>(
-                    <div className={style.itemPromo}>
+                    <div className={style.itemPromo} key={product.id}>
                     <p className={style.title}>{product.name}</p>
                     <div className={style.imgProduct}> 
                     <Image src={Chaerva} alt="chaerva"></Image>
@@ -42,6 +49,7 @@ export function Main(){
                   </div>
           ))}
         </div>
+        <button onClick={see}>see</button>
       </article>
 
       </section>
