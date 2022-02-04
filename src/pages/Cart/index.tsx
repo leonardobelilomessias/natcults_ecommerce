@@ -1,8 +1,11 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { Aside } from "../../components/Aside";
 import { CartContext } from "../../context/ContextCart";
 import style from './cart.module.scss'
+import { Container,Product, Products, Total } from "./Styles";
+import Cha from '../../assets/img/chaverde.jpg'
 
 export default function Cart(){
   const [total,setTotal] =useState(0)
@@ -17,31 +20,40 @@ return(
       <Head>
         <title>Carrinho</title>
       </Head>
-      <section className={style.main}>
+      <Container>
           <section>
             <h1>Carrinho</h1>
             <h2>Itens</h2>
-            <div className={style.listProducts}>
+            {(total === 0)?<p> Não há itens no carrinho</p>:
+            <>
 
-                    <div className={style.title}>
-                      <p>Produto</p>
-                      <p>preço</p>
-                    </div>
-                    <div className={style.products}>
+              <Products>
 
-                      { cart.map((item,index)=>(
-                        <div className={style.product}>
-                          <p  key={index}>{item.name}</p>
-                          <p> {item.price}</p>
-                          <button value={index} onClick={(e)=>{deleteItem([e.target,setCart])}}>Excluir</button>
+                  { cart.map((item,index)=>(
+                      <Product>
+                        <div>
+                        <Image src={Cha} width={200} height={200}></Image>
+
                         </div>
-                      ))}
-                    </div>
-            </div>
-            <h3>Total</h3> <p>{total}</p>
+                        <p  key={index}>{item.name}</p>
+                        <p > {item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                        <button value={index} onClick={(e)=>{deleteItem([e.target,setCart])}}>Excluir</button>
+                      </Product>
+                  ))}
+              </Products>
+            <Total>
+              <div>
+
+                <h3>Total:</h3><p>{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+              </div>
+              <button>Finalizar Compra</button>
+            </Total>      
+            </>
+          }
+
           </section>
-          <Aside></Aside>
-      </section>
+         
+      </Container>
 
 
 
