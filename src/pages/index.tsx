@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className={styles.test}>
       <Head >
-         <title>natcults</title>
+         <title>Natcults</title>
       </Head>
       <Main ></Main>
     </div>

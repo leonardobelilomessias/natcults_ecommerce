@@ -6,6 +6,7 @@ import { CartContext } from "../../context/ContextCart";
 import style from './cart.module.scss'
 import { Container,Product, Products, Total } from "./Styles";
 import Cha from '../../assets/img/chaverde.jpg'
+import Link from "next/link";
 
 export default function Cart(){
   const [total,setTotal] =useState(0)
@@ -31,10 +32,13 @@ return(
 
                   { cart.map((item,index)=>(
                       <Product>
-                        <div>
-                        <Image src={Cha} width={200} height={200}></Image>
-
-                        </div>
+                        <Link href={`/product/${item.id}`}>
+                          <a>
+                            <div>
+                            <Image src={Cha} width={200} height={200}></Image>
+                            </div>
+                          </ a>
+                        </Link>
                         <p  key={index}>{item.name}</p>
                         <p > {item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                         <button value={index} onClick={(e)=>{deleteItem([e.target,setCart])}}>Excluir</button>

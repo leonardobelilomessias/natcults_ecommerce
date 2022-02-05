@@ -7,6 +7,8 @@ export const Container = styled.div`
       font-size: 2.5rem;
       margin-bottom: 20px;
 
+  
+
     }`
 
 export const Products = styled.div` 

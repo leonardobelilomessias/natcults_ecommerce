@@ -28,13 +28,13 @@ export function Header(){
           <Link href="/">
             <a >Inicio</a>
           </Link>
-          <Link href="sobre">
+          <Link href="/">
             <a >Sobre</a>
           </Link>
-          <Link href="blog">
+          <Link href="/">
             <a>Blog</a>
           </Link>
-          <Link href="contato">
+          <Link href="/">
             <a >Contato</a>
           </Link>
       </nav>
