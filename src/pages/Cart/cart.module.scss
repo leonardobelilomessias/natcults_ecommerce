@@ -7,6 +7,10 @@ h1{
   font-size: 1.7rem;
   margin: 20px;
 }
+h2{
+   font-size: 1.5rem;
+   color: rgb(39, 39, 39);
+}
   .listProducts{
     display: flex;
     flex-direction: column;
@@ -38,4 +42,14 @@ h1{
   }
   }
 
+}
+.noItems{
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #c7c7c7b4;
+  padding: 1.6rem;
+  border-radius: 5px;
+  p{
+    font-size: 1.1rem;
+  }
 }

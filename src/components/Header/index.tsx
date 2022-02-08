@@ -18,7 +18,9 @@ export function Header(){
           <Link href="/">
             <a>
           <div className={style.logo}>
-            <Image src={Leaf} height={50} width={50} alt="Logo"></Image>
+            <div className={style.imgLogo}>
+            <Image src={Leaf} height={30} width={30} alt="Logo"></Image>
+            </div>
             <h1>Natcults</h1>
           </div>
             </a>

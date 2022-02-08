@@ -1,0 +1,31 @@
+.footer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  .first{
+    padding: 3rem;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-color: #92C94E;
+    justify-content: space-between;
+    .socialMidia{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    ul{
+      list-style: none;
+    }
+
+  }
+  .second{
+    color: #2c2c2c;
+    text-align: center;
+    background-color: #CDFD92;
+    padding: 1rem;
+    h4{
+      font-size: 1.2rem;
+    }
+  }
+}

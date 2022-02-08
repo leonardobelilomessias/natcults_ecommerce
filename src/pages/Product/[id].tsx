@@ -6,6 +6,7 @@ import style from './style.module.scss'
 import Cha from '../../assets/img/chaverde.jpg'
 import Image from "next/image"
 import Head from "next/head"
+import Cart from "../Cart"
 
 
 export default function Product(){
@@ -13,7 +14,7 @@ export default function Product(){
   const {
     query: { id },
   } = router
-  const {products} =useContext(CartContext)
+  const {products,cart,setCart} =useContext(CartContext)
 
   const product= []
 
@@ -23,7 +24,10 @@ products.forEach(productAll=>{
         product.push(productAll)
       }
     })
-  
+ function handleAddProduct(){
+  console.log(product[0])
+  setCart([...cart,product[0]])
+ }
 
   return(
     <>
@@ -55,9 +59,9 @@ products.forEach(productAll=>{
             <h1> {item.name}</h1>
             <p>{item.description}</p>
             <p>{item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+            <button value={item.id} onClick={handleAddProduct}>Comprar</button>
             </>
             ))}
-              <button>Comprar</button>
       </div>
 
     </section>

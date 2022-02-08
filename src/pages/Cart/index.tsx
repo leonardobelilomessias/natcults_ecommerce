@@ -25,14 +25,14 @@ return(
           <section>
             <h1>Carrinho</h1>
             <h2>Itens</h2>
-            {(total === 0)?<p> Não há itens no carrinho</p>:
+            {(total === 0)?<div className={style.noItems}> <p>Ainda não há itens no carrinho.</p> </div>:
             <>
 
               <Products>
 
                   { cart.map((item,index)=>(
                       <Product>
-                        <Link href={`/product/${item.id}`}>
+                        <Link href={`/Product/${item.id}`}>
                           <a>
                             <div>
                             <Image src={Cha} width={200} height={200}></Image>

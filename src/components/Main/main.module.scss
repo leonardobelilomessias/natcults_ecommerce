@@ -1,6 +1,6 @@
 .main{
   display: flex;
-  width: 100vw;
+  max-width: 100vw;
 }
 
 .section{
@@ -16,30 +16,33 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    .infoBanner{
+    .searchBanner{
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      h1{
-        font-size: 2rem;
-        color: #4BAF50;
-        margin: 5px;
+      input{
+        width: 21rem;
+        height: 2rem;
+        font-size: 1.2rem;
+        padding-left: 1rem;
+        border-radius: 8px;
+        outline: none;
+        margin: 0px;
+        outline: 0px;
 
-      }
-      h2{
-        font-size: 2rem;
-        color: #333333;
-        margin: 5px;
-
+        &:focus{
+          outline: #b1f7b5 1px solid;
+        }
+        &::placeholder{
+          text-align: center;
+        }
       }
       button{
-        width: 150px;
-        height: 50px;
+        width: 6.5rem;
+        height: 2rem;
         font-family: "Roboto";
-        background-color: #FBA21D;
+        background-color: #4BAF50;
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
         border-radius: 4px;
         margin: 5px;
@@ -96,6 +99,7 @@
     background-color: rgb(232, 243, 209);
     margin: 2.5rem 0;
     padding: 2rem 0 3.5rem 0;
+    max-width: 100vw;
     h1{
       color:#333333;
       font-size: 2.5rem;

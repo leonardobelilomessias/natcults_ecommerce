@@ -10,10 +10,17 @@
 
   .logo{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .imgLogo{
+      padding-left: 1rem;
+
+    }
   }
   h1{
     font-family: "Yuji Boku";
+
+    line-height: 0.3;
   }
   .nav {
     display: flex;
@@ -22,7 +29,12 @@
     margin: 10px 50px;
     font-family: 400 1rem "Roboto", sans-serif;
     color: #CACACA;
-  }}
+      &:hover{
+        color: #92C94E;
+        text-decoration: underline;
+      }
+  }
+}
   .bag{
     
     position: relative;
@@ -35,9 +47,10 @@
     background-color: red;
     color: white;
     text-align: center;
-    font-weight: bold;
+    font-size: 0.8rem;
     top: 0px;
     right: 0px;
     z-index: 9999;
+    line-height: 1.2rem;
   }
 }
