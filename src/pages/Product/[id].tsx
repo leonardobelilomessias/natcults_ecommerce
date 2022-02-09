@@ -7,6 +7,7 @@ import Cha from '../../assets/img/chaverde.jpg'
 import Image from "next/image"
 import Head from "next/head"
 import Cart from "../Cart"
+import { CardItem } from "../../components/CardItem"
 
 
 export default function Product(){
@@ -65,7 +66,10 @@ products.forEach(productAll=>{
       </div>
 
     </section>
-
+      <section>
+        <h2>Produtos Relacionados</h2>
+        <CardItem></CardItem>
+      </section>
     </main>
 
 

@@ -7,6 +7,7 @@ import style from './cart.module.scss'
 import { Container,Product, Products, Total } from "./Styles";
 import Cha from '../../assets/img/chaverde.jpg'
 import Link from "next/link";
+import { CardItem } from "../../components/CardItem";
 
 export default function Cart(){
   const [total,setTotal] =useState(0)
@@ -56,7 +57,9 @@ return(
           }
 
           </section>
-         
+          <br/>
+          <h2>Produtos que você também pode gostar</h2>
+         <CardItem></CardItem>
       </Container>
 
 
