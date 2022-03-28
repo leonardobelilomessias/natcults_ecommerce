@@ -32,7 +32,7 @@ return(
               <Products>
 
                   { cart.map((item,index)=>(
-                      <Product>
+                      <Product key={index}>
                         <Link href={`/Product/${item.id}`}>
                           <a>
                             <div>
@@ -51,7 +51,11 @@ return(
 
                 <h3>Total:</h3><p>{total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
               </div>
-              <button>Finalizar Compra</button>
+
+              <Link href="/Checkout">
+            <a ><button>Finalizar Compra</button></a>
+              </Link>
+              
             </Total>      
             </>
           }

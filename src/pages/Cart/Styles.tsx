@@ -6,6 +6,7 @@ export const Container = styled.div`
       color:#333333;
       font-size: 2.5rem;
       margin-bottom: 20px;
+
     }
     h2{
    font-size: 1.5rem;

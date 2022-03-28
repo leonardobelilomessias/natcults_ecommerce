@@ -10,7 +10,6 @@ export function CardItem(){
     products.forEach(product=> {
       if(product.id.valueOf()== productAdd.value){ 
         setCart([...cart,product])
-        console.log(product)
         return 
         }
       })
