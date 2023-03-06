@@ -41,17 +41,17 @@ products.forEach(productAll=>{
       <div className={style.images}>
         <div className={style.imgSmallers}>
             <div className={style.imgSmaller}>
-              <Image src={Cha}></Image>
+              <Image alt=""  src={Cha}></Image>
             </div>
             <div className={style.imgSmaller}>
-              <Image src={Cha}></Image>
+              <Image alt="" src={Cha}></Image>
             </div>
             <div className={style.imgSmaller}>
-              <Image src={Cha}></Image>
+              <Image alt="" src={Cha}></Image>
             </div>
         </div>
         <div className={style.imgLarge}>
-        <Image src={Cha}></Image>
+        <Image alt='' src={Cha}></Image>
         </div>
       </div>
       <div className={style.info}>

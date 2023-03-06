@@ -1,4 +1,6 @@
+'use client'
 import Link from "next/link"
+
 import Image from "next/image"
 import style from './cardItem.module.scss'
 import Chaverde from '../../assets/img/chaverde.jpg'
@@ -16,14 +18,14 @@ export function CardItem(){
   }
   return(
     <div className={style.itensPromo}>
-    {products.map(product=>(
+    {products?.map(product=>(
               <div className={style.itemPromo} key={product.id}>
                   <Link href={`/Product/${product.id}`}>
-                    <a>
+                    
                       <div className={style.imgProduct}> 
                         <Image src={Chaverde}  width={200} height={200} alt="chaerva"></Image>
                       </div>
-                    </a>
+                  
                   </Link>
                   <p className={style.title}>{product.name}</p>
                   <p className={style.priceProduct}>R${product.price}</p>

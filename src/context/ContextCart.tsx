@@ -1,3 +1,4 @@
+'use client'
 import {useState,createContext,ReactNode} from "react";
 import { products as allProducts } from "../data/products";
 
@@ -27,6 +28,7 @@ type CartProvideProps={
 const CartContext = createContext<DataCArtContext>({} as DataCArtContext)
 
 function CartProvider({children}:CartProvideProps){
+
   const [products,setProducts] = useState<ItensProps []>(allProducts)
   const [cart,setCart]=useState<CartProps []>([])
 

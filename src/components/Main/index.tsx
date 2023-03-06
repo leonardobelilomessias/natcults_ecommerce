@@ -1,19 +1,15 @@
 import Image from 'next/image'
 import style from './main.module.scss'
 import { CardItem } from '../CardItem'
+import { HeroImageBackground } from './HeroImageBackground'
 
 export function Main(){
   return(
     <>
     <main className={style.main}>
-
       <section className={style.section}>
-        <div className={style.banner}>
-        <div className={style.searchBanner}>
-          <input type="text"  placeholder='Buscando por algo?'/>
-          <button> Buscar </button>
-        </div>
-        </div>
+
+    <HeroImageBackground/>
        
           <article className={style.promo} >
             <h1>Promoções</h1>
