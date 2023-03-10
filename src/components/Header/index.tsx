@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   createStyles, 
   Header,
@@ -10,11 +10,16 @@ import {
   rem,
   Text,
   Box,
+  useMantineTheme,
+  Indicator,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import Leaf from '../../assets/img/leaf.png'
-
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import {BsFillHandbagFill} from 'react-icons/bs'
+import { CartContext } from '../../context/ContextCart';
 const HEADER_HEIGHT = rem(70);
 
 const useStyles = createStyles((theme) => ({
@@ -45,6 +50,9 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: '100%',
+    justifyItems:'center',
+    alignContent:"center",
+    minWidth:"80vw",
     
   },
 
@@ -96,9 +104,13 @@ export function HeaderMantine({ links }: HeaderResponsiveProps) {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
-
+  const {push} = useRouter() 
+  const {colors} = useMantineTheme()
+  const {cart} = useContext(CartContext)
   const items = links.map((link) => (
-    <a
+  
+    
+    <Link
       key={link.label}
       href={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
@@ -106,14 +118,15 @@ export function HeaderMantine({ links }: HeaderResponsiveProps) {
         event.preventDefault();
         setActive(link.link);
         close();
+        push(link.link)
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
-    <Header height={HEADER_HEIGHT}  className={classes.root}>
+    <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
         <Box  sx={{ display:'flex', flexDirection:"column" , alignItems:"flex-end", justifyContent:'space-around' ,}}  >
         <Image src={Leaf} width={26} height={26} alt='img'></Image>
@@ -132,7 +145,27 @@ export function HeaderMantine({ links }: HeaderResponsiveProps) {
             </Paper>
           )}
         </Transition>
+        <Link href={'/Cart'}>
+          <Box pos={'relative'}>
+            {
+              cart.length>0&& 
+              <ItemBag itensLength={cart.length}/>
+            }
+          <BsFillHandbagFill size={30} color={colors['green']['5']}/>
+          </Box>
+        </Link>
+
       </Container>
     </Header>
   );
+}
+
+function ItemBag({itensLength}:{itensLength:number}){
+  return(
+    <>
+          <Box  w={'1.1rem'} h={'1.1rem'} bg={'red'} pos={'absolute'} sx={{borderRadius:'10px', display:'flex' , alignItems:'center',justifyContent:'center',}} top={0} right={0} >
+            <Text color={'white'}  fz={'0.8rem'}>{itensLength}</Text>
+          </Box>
+    </>
+  )
 }

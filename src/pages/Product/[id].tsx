@@ -2,7 +2,7 @@
 import { useCallback, useContext, useEffect, useState } from "react"
 import { CartContext } from "../../context/ContextCart"
 import { useRouter } from "next/router"
-import style from './style.module.scss'
+
 import Cha from '../../assets/img/chaverde.jpg'
 import Image from "next/image"
 import Head from "next/head"
@@ -21,7 +21,7 @@ export default function Product(){
 
 
 products.forEach(productAll=>{
-      if( productAll.id.valueOf() == Number(id)){
+      if( productAll.id == id){
         product.push(productAll)
       }
     })
@@ -35,26 +35,26 @@ products.forEach(productAll=>{
         <Head>
           <title>{product.map(item=>(item.name))}</title>
         </Head>
-    <main className={style.container}>
+    <main >
     <h1>Produto</h1>
-    <section className={style.contentProduct}>
-      <div className={style.images}>
-        <div className={style.imgSmallers}>
-            <div className={style.imgSmaller}>
+    <section >
+      <div >
+        <div >
+            <div >
               <Image alt=""  src={Cha}></Image>
             </div>
-            <div className={style.imgSmaller}>
+            <div >
               <Image alt="" src={Cha}></Image>
             </div>
-            <div className={style.imgSmaller}>
+            <div >
               <Image alt="" src={Cha}></Image>
             </div>
         </div>
-        <div className={style.imgLarge}>
+        <div >
         <Image alt='' src={Cha}></Image>
         </div>
       </div>
-      <div className={style.info}>
+      <div >
             {product.map(item=>(
               <>
             <h1> {item.name}</h1>

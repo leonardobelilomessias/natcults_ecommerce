@@ -18,4 +18,11 @@ export const products=[{
   name:"Chá de Limão 300g",
   price:11.45,
   description:"Chá com o melhor do sabor citrico" 
- },]
+ },
+{
+  id:4,
+  name:"Chá de Hbisco 300g",
+  price:11.45,
+  description:"Chá para a redução de peso" 
+}
+]

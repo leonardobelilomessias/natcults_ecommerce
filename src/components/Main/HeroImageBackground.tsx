@@ -1,4 +1,4 @@
-import { Title, Text, Container, Button, Overlay, createStyles, rem } from '@mantine/core';
+import { Title, Text, Container, Button, Overlay, createStyles, rem, MediaQuery } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -6,7 +6,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: rem(180),
     paddingBottom: rem(130),
     background:
-      `url('http://localhost:3000/banner.jpg') red`,
+      `url('http://localhost:3000/banner.jpg') `,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
 
@@ -14,11 +14,15 @@ const useStyles = createStyles((theme) => ({
       paddingTop: rem(80),
       paddingBottom: rem(50),
     },
+    
   },
 
   inner: {
     position: 'relative',
     zIndex: 1,
+    [theme.fn.smallerThan('xs')]: {
+      zIndex:0
+    },
   },
 
   title: {
@@ -101,8 +105,9 @@ export function HeroImageBackground() {
 
   return (
     <div className={classes.wrapper}>
-
+  <MediaQuery smallerThan="sm" styles={{ zIndex:0 }}>
       <Overlay color="#000" opacity={0} zIndex={1} />
+  </MediaQuery>
       <div className={classes.inner}>
         <Title className={classes.title}>
           Cuide-se com quem pode te oferecer o melhor da {' '}

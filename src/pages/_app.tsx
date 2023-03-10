@@ -1,10 +1,11 @@
 import {AppProps} from 'next/app'
 import NextHead from 'next/head'
 import '../../styles/globals.scss'
-import { Footer } from '../components/Footer'
+import { FooterCentered } from '../components/Footer'
 import {  HeaderMantine } from '../components/Header'
 import { CartProvider } from '../context/ContextCart'
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications'
 function MyApp({ Component, pageProps }:AppProps) {
   return( 
     
@@ -18,10 +19,11 @@ theme={{
   colorScheme: 'light',
 }}
 >
+<Notifications />
 <CartProvider>
       <HeaderMantine links={links}/>
       <Component {...pageProps} />
-      <Footer></Footer>
+      <FooterCentered links={links}/>
   </CartProvider>
 </MantineProvider>
 
@@ -32,14 +34,14 @@ export default MyApp
 
 const links = [{
   link: '/',
-  label: 'home'
+  label: 'Pagina Inicial'
 },
 {
   link: '/sobre',
   label: 'Sobre'
 },
 {
-  link: '/carrinho',
+  link: '/Cart',
   label: 'Carrinho'
 }
 ]

@@ -3,7 +3,7 @@ import { Container } from './Styles'
 import {useForm,FormProvider } from 'react-hook-form'
 import { CartContext } from '../../context/ContextCart'
 import { api } from '../../services/api'
-import getStripeJs from '../../services/stripe-js'
+
 
 
 
@@ -20,10 +20,9 @@ function Checkout() {
     event.preventDefault()
     try{
       const response = await api.post('/payment',{totalAmount:total})
-      const {sessionId}= response.data
-      const stripe = await getStripeJs()
-      await  stripe.redirectToCheckout({sessionId})
-      
+      const {checkoutUrl}= response.data
+
+      window.location.href = checkoutUrl
        
     }catch(err){
       alert(err)

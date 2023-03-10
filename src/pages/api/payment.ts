@@ -1,17 +1,17 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
+import {stripe} from '../../services/stripe'
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const {totalAmount} = req.body
+    const amount = Number(totalAmount)
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create({
         line_items:[ // all arguments are required
         {
           price_data: {
-            unit_amount_decimal: totalAmount*100,
-            currency:  'brl',
+            unit_amount: totalAmount*100,
+            currency:'brl',
             product_data: {
-              name: 'Test Product'
+              name: 'Test Product',
             },
           },
           quantity: 1,
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         cancel_url:`http://localhost:3000`,
       });
       
-      return res.status(200).json({sessionId:session.id});
+      return res.status(200).json({checkoutUrl:session.url});
       
   } else {
     res.setHeader('Allow', 'POST');

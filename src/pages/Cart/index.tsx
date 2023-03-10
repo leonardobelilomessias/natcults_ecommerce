@@ -3,11 +3,12 @@ import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { Aside } from "../../components/Aside";
 import { CartContext } from "../../context/ContextCart";
-import style from './cart.module.scss'
+
 import { Container,Product, Products, Total } from "./Styles";
 import Cha from '../../assets/img/chaverde.jpg'
 import Link from "next/link";
 import { CardItem } from "../../components/CardItem";
+import { CartEmpty } from "../../components/Cart/CartEmpty";
 
 export default function Cart(){
   const [total,setTotal] =useState(0)
@@ -26,7 +27,7 @@ return(
           <section>
             <h1>Carrinho</h1>
             <h2>Itens</h2>
-            {(total === 0)?<div className={style.noItems}> <p>Ainda não há itens no carrinho.</p> </div>:
+            {(total === 0)?<CartEmpty/>:
             <>
 
               <Products>
@@ -42,7 +43,7 @@ return(
                         </Link>
                         <p  key={index}>{item.name}</p>
                         <p > {item.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-                        <button value={index} onClick={(e)=>{deleteItem([e.target,setCart])}}>Excluir</button>
+                        <button value={index} onClick={(e)=>{deleteItem(String(index))}}>Excluir</button>
                       </Product>
                   ))}
               </Products>

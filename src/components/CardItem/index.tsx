@@ -1,13 +1,16 @@
-'use client'
+
 import Link from "next/link"
 
 import Image from "next/image"
-import style from './cardItem.module.scss'
+
 import Chaverde from '../../assets/img/chaverde.jpg'
 import { CartContext } from "../../context/ContextCart"
 import { useContext } from "react"
+import { CardMantine } from "./CardMantine"
+import { Box, Flex } from "@mantine/core"
 export function CardItem(){
   const {products,setCart,cart} = useContext(CartContext)
+  console.log(products)
   function addProduct(productAdd){
     products.forEach(product=> {
       if(product.id.valueOf()== productAdd.value){ 
@@ -17,21 +20,22 @@ export function CardItem(){
       })
   }
   return(
-    <div className={style.itensPromo}>
+    <Flex       
+    gap="xl"
+    justify="space-around"
+    align="center"
+    direction="row"
+    wrap="wrap"
+    
+    >
+
     {products?.map(product=>(
-              <div className={style.itemPromo} key={product.id}>
-                  <Link href={`/Product/${product.id}`}>
-                    
-                      <div className={style.imgProduct}> 
-                        <Image src={Chaverde}  width={200} height={200} alt="chaerva"></Image>
-                      </div>
-                  
-                  </Link>
-                  <p className={style.title}>{product.name}</p>
-                  <p className={style.priceProduct}>R${product.price}</p>
-                  <button value={product.id} onClick={(e)=>{addProduct(e.target)}}>Comprar</button>
-            </div>
-    ))}
-  </div>
+        <Box maw={'400px'} key={product.id}>
+
+        <CardMantine description={product.description} id={product.id} price={product.price} name={product.name}/>
+        </Box>
+        ))}
+  
+        </Flex>
   )
 }
