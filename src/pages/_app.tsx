@@ -9,8 +9,6 @@ import { Notifications } from '@mantine/notifications'
 function MyApp({ Component, pageProps }:AppProps) {
   return( 
     
-
-
 <MantineProvider
 withGlobalStyles
 withNormalizeCSS

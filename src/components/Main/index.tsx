@@ -1,43 +1,33 @@
 import Image from 'next/image'
 
-import { CardItem } from '../CardItem'
+import { CardItem } from '../LargePromotion'
 import { HeroImageBackground } from './HeroImageBackground'
 import { Box, Divider, Header, Space, Stack, Text, Title } from '@mantine/core'
+import { MostSales } from '../MostSales'
+import { FeaturesBussines } from './FeaturesBussines'
+import { Launchs } from '../Launchs'
 
-export function Main(){
-  return(
+export function Main() {
+  return (
     <>
-    <main >
-      <section >
+      <main >
+        <section >
 
-    <HeroImageBackground/>
-       
+          <HeroImageBackground />
+          <FeaturesBussines/>
           <Box component='article' my={'lg'} >
-            <Title m={50} >Promoções</Title>
-          <CardItem></CardItem>
-          </Box>
-          <Space  h={'xl'}/>
-          <Divider my="xl" variant="dashed" />
-
-        <Box my={'lg'}>
-
-            <Title m={50} >Mais Vendidos</Title>
-                <CardItem></CardItem>
-                <Space  h={'xl'}/>
-                <CardItem></CardItem>
-
-                <Space  h={'xl'}/>
-          <Divider my="xl" variant="dashed" />
-        </Box>
-
-
-          <article >
-            <Title m={50} >Lançamentos</Title>
+            <Title m={50} ta={'center'} >Promoções</Title>
             <CardItem></CardItem>
-          </article>
-      
-      </section>
-    </main>
+          </Box>
+          <Space h={'xl'} />
+          <Divider my="xl" variant="dashed" />
+          <MostSales/>
+  
+            <Launchs/>
+
+
+        </section>
+      </main>
     </>
   )
-  }
+}

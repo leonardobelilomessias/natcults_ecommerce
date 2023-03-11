@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Container } from './Styles'
 import {useForm,FormProvider } from 'react-hook-form'
 import { CartContext } from '../../context/ContextCart'
 import { api } from '../../services/api'
@@ -29,7 +28,7 @@ function Checkout() {
     }
   }
   return (
-    <Container>
+<>
       <h1>Checkout</h1>
       <FormProvider {...methods}>
       <form onSubmit={(e)=>{handleSubmit(e)}}>
@@ -38,8 +37,8 @@ function Checkout() {
         </form>
 
       </FormProvider>
+</>
 
-    </Container>
   )
 }
 

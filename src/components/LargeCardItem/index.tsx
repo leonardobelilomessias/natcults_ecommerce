@@ -8,6 +8,7 @@ type ItensProps={
     name:string
     price:number
     description:string
+    img:string
   }
 const useStyles = createStyles((theme) => ({
   card: {
@@ -53,7 +54,7 @@ const mockdata = [
   { label: 'Electric', icon: 'IconGasStation' },
 ];
 
-export function CardMantine({description,id, name,price}:ItensProps) {
+export function LargeCardItem({description,id, name,price,img}:ItensProps) {
   const { classes } = useStyles();
   const {setCart,addItem} = useContext(CartContext)
   function showNotification(product:String){
@@ -78,7 +79,7 @@ export function CardMantine({description,id, name,price}:ItensProps) {
   return (
     <Card withBorder radius="md" className={classes.card} shadow={'lg'}>
       <Card.Section className={classes.imageSection}>
-        <Image src="http://localhost:3000/chaverde.jpg" alt="Tesla Model S" />
+      <Image width={350} height={350} src={`http://localhost:3000/teas/${img}`} alt="Tesla Model S" />
       </Card.Section>
 
       <Group position="apart" mt="md">

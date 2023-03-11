@@ -7,6 +7,7 @@ type ItensProps={
   name:string
   price:number
   description:string
+  img:string
 }
 type DataCArtContext={
   products:ItensProps[]
